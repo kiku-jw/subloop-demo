@@ -91,7 +91,19 @@ src/
 Проект настроен для деплоя на GitHub Pages:
 - Сборка в папку `/docs`
 - Base path: `/subloop-demo/`
-- Автоматический деплой при push в `main`
+- Автоматический деплой через GitHub Actions при push в `main`
+
+### Настройка GitHub Pages (один раз)
+
+1. Перейдите в **Settings** → **Pages** репозитория
+2. В разделе **Source** выберите:
+   - **Source**: `Deploy from a branch`
+   - **Branch**: `main` → `/docs`
+3. Сохраните настройки
+
+После этого сайт будет доступен по адресу: `https://kiku-jw.github.io/subloop-demo/`
+
+**Примечание:** GitHub Actions workflow автоматически будет деплоить изменения при каждом push в `main`.
 
 ## Лицензия
 

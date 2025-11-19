@@ -16,6 +16,8 @@
 
     <main class="main">
       <div class="container">
+        <HeroSection />
+        
         <div class="grid grid-cols-1 gap-6 mb-6">
           <SummaryCard
             :savings="totalSavings"
@@ -23,7 +25,11 @@
           />
         </div>
 
-        <SubscriptionTable :subscriptions="subscriptions" />
+        <div class="mb-6">
+          <Legend />
+        </div>
+
+        <SubscriptionTable :subscriptions="prioritizedSubscriptions" />
       </div>
     </main>
   </div>
@@ -33,7 +39,9 @@
 import { ref, computed, onMounted } from 'vue'
 import subscriptionsData from '../data/subscriptions.json'
 import { calculateTotalSavings } from '../utils/classifier'
+import HeroSection from '../components/HeroSection.vue'
 import SummaryCard from '../components/SummaryCard.vue'
+import Legend from '../components/Legend.vue'
 import SubscriptionTable from '../components/SubscriptionTable.vue'
 
 const subscriptions = ref([])
@@ -46,6 +54,27 @@ const recommendationsCount = computed(() => {
   return subscriptions.value.filter(
     (sub) => sub.recommendation.potential_saving_monthly > 0
   ).length
+})
+
+// Prioritize subscriptions: show recommendations first, then by status
+const prioritizedSubscriptions = computed(() => {
+  return [...subscriptions.value].sort((a, b) => {
+    // First: subscriptions with savings
+    const aHasSavings = a.recommendation.potential_saving_monthly > 0
+    const bHasSavings = b.recommendation.potential_saving_monthly > 0
+    
+    if (aHasSavings && !bHasSavings) return -1
+    if (!aHasSavings && bHasSavings) return 1
+    
+    // Second: by savings amount (descending)
+    if (aHasSavings && bHasSavings) {
+      return b.recommendation.potential_saving_monthly - a.recommendation.potential_saving_monthly
+    }
+    
+    // Third: by status (DEAD > SEMI_DEAD > ACTIVE)
+    const statusOrder = { DEAD: 0, SEMI_DEAD: 1, ACTIVE: 2 }
+    return statusOrder[a.status] - statusOrder[b.status]
+  })
 })
 
 onMounted(() => {

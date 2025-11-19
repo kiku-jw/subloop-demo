@@ -1,7 +1,7 @@
 <template>
   <div class="subscriptions-container">
     <div class="subscriptions-header">
-      <h3>Subscriptions ({{ filteredSubscriptions.length }})</h3>
+      <h3>{{ t('subscriptions') }} ({{ filteredSubscriptions.length }})</h3>
       <div class="filters">
         <button
           v-for="filter in filters"
@@ -23,11 +23,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Service</th>
-            <th>Cost</th>
-            <th>Status</th>
-            <th>Recommendation</th>
-            <th class="text-right">Savings</th>
+            <th>{{ t('service') }}</th>
+            <th>{{ t('cost') }}</th>
+            <th>{{ t('status') }}</th>
+            <th>{{ t('recommendation') }}</th>
+            <th class="text-right">{{ t('savings') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -90,24 +90,24 @@
         
         <div class="card-body">
           <div class="card-row">
-            <span class="card-label">Status</span>
+            <span class="card-label">{{ t('status') }}</span>
             <StatusBadge :status="subscription.status" />
           </div>
           
           <div class="card-row">
-            <span class="card-label">Recommendation</span>
+            <span class="card-label">{{ t('recommendation') }}</span>
             <div class="recommendation-mobile">
               <RecommendationBadge :action="subscription.recommendation.action" />
             </div>
           </div>
           
           <div class="card-row">
-            <span class="card-label">Reason</span>
+            <span class="card-label">{{ t('reason') }}</span>
             <span class="card-value">{{ subscription.recommendation.reason }}</span>
           </div>
           
           <div v-if="subscription.recommendation.potential_saving_monthly > 0" class="card-savings">
-            <span class="card-label">Potential Savings</span>
+            <span class="card-label">{{ t('potentialSavingsLabel') }}</span>
             <span class="savings-amount">${{ formatCurrency(subscription.recommendation.potential_saving_monthly) }}/mo</span>
           </div>
         </div>
@@ -118,6 +118,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from '../utils/i18n'
 import StatusBadge from './StatusBadge.vue'
 import RecommendationBadge from './RecommendationBadge.vue'
 
@@ -129,12 +130,14 @@ const props = defineProps({
   },
 })
 
-const filters = [
-  { value: 'ALL', label: 'All', icon: '📋' },
-  { value: 'ACTIVE', label: 'Active', icon: '✅' },
-  { value: 'SEMI_DEAD', label: 'Low Usage', icon: '⚠️' },
-  { value: 'DEAD', label: 'Unused', icon: '❌' },
-]
+const { t } = useI18n()
+
+const filters = computed(() => [
+  { value: 'ALL', label: t('all'), icon: '📋' },
+  { value: 'ACTIVE', label: t('active'), icon: '✅' },
+  { value: 'SEMI_DEAD', label: t('lowUsage'), icon: '⚠️' },
+  { value: 'DEAD', label: t('unused'), icon: '❌' },
+])
 const activeFilter = ref('ALL')
 
 const filteredSubscriptions = computed(() => {

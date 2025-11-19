@@ -1,11 +1,14 @@
 <template>
   <span :class="badgeClass" class="badge">
-    {{ status }}
+    {{ t(status) }}
   </span>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from '../utils/i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   status: {

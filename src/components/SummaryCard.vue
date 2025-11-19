@@ -1,38 +1,42 @@
 <template>
   <div class="summary-card">
     <div class="summary-header">
-      <h3 class="summary-title">Potential Savings</h3>
+      <h3 class="summary-title">{{ t('potentialSavings') }}</h3>
       <span v-if="recommendationsCount > 0" class="summary-badge">
-        {{ recommendationsCount }} {{ recommendationsCount === 1 ? 'recommendation' : 'recommendations' }}
+        {{ recommendationsCount }} {{ recommendationsCount === 1 ? t('recommendation') : t('recommendations') }}
       </span>
     </div>
     
     <div class="summary-amounts">
       <div class="summary-amount">
-        <p class="summary-label">Monthly</p>
+        <p class="summary-label">{{ t('monthly') }}</p>
         <p class="summary-value">${{ formatCurrency(savings.monthly) }}</p>
       </div>
       <div class="summary-divider"></div>
       <div class="summary-amount">
-        <p class="summary-label">Yearly</p>
+        <p class="summary-label">{{ t('yearly') }}</p>
         <p class="summary-value summary-value-yearly">${{ formatCurrency(savings.yearly) }}</p>
       </div>
     </div>
     
     <div v-if="savings.monthly > 0" class="summary-footer">
       <p class="summary-hint">
-        💡 Review recommendations below to optimize your subscriptions
+        {{ t('reviewRecommendations') }}
       </p>
     </div>
     <div v-else class="summary-footer">
       <p class="summary-hint">
-        ✅ All subscriptions are optimized
+        {{ t('allOptimized') }}
       </p>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from '../utils/i18n'
+
+const { t } = useI18n()
+
 defineProps({
   savings: {
     type: Object,

@@ -1,17 +1,18 @@
 <template>
   <div class="hero">
     <div class="hero-content">
-      <h2 class="hero-title">Optimize Your Subscriptions</h2>
+      <h2 class="hero-title">{{ t('heroTitle') }}</h2>
       <p class="hero-description">
-        SubLoop analyzes your subscriptions and identifies opportunities to save money.
-        Review recommendations below and take action on unused or underutilized services.
+        {{ t('heroDescription') }}
       </p>
     </div>
   </div>
 </template>
 
 <script setup>
-// No props needed
+import { useI18n } from '../utils/i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

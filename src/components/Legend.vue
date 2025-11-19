@@ -1,37 +1,37 @@
 <template>
   <div class="legend">
     <div class="legend-section">
-      <h4 class="legend-title">Status</h4>
+      <h4 class="legend-title">{{ t('status') }}</h4>
       <div class="legend-items">
         <div class="legend-item">
           <StatusBadge status="ACTIVE" />
-          <span class="legend-text">High usage, keep as is</span>
+          <span class="legend-text">{{ t('highUsageKeep') }}</span>
         </div>
         <div class="legend-item">
           <StatusBadge status="SEMI_DEAD" />
-          <span class="legend-text">Low usage, consider downgrading</span>
+          <span class="legend-text">{{ t('lowUsageDowngrade') }}</span>
         </div>
         <div class="legend-item">
           <StatusBadge status="DEAD" />
-          <span class="legend-text">No usage, cancel to save</span>
+          <span class="legend-text">{{ t('noUsageCancel') }}</span>
         </div>
       </div>
     </div>
     
     <div class="legend-section">
-      <h4 class="legend-title">Actions</h4>
+      <h4 class="legend-title">{{ t('actions') }}</h4>
       <div class="legend-items">
         <div class="legend-item">
           <RecommendationBadge action="KEEP" />
-          <span class="legend-text">No changes needed</span>
+          <span class="legend-text">{{ t('noChangesNeeded') }}</span>
         </div>
         <div class="legend-item">
           <RecommendationBadge action="DOWNGRADE" />
-          <span class="legend-text">Reduce seats or plan</span>
+          <span class="legend-text">{{ t('reduceSeatsOrPlan') }}</span>
         </div>
         <div class="legend-item">
           <RecommendationBadge action="CANCEL" />
-          <span class="legend-text">Cancel subscription</span>
+          <span class="legend-text">{{ t('cancelSubscription') }}</span>
         </div>
       </div>
     </div>
@@ -39,8 +39,11 @@
 </template>
 
 <script setup>
+import { useI18n } from '../utils/i18n'
 import StatusBadge from './StatusBadge.vue'
 import RecommendationBadge from './RecommendationBadge.vue'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

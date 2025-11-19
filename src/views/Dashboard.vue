@@ -4,11 +4,14 @@
       <div class="container">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="mb-2">SubLoop</h1>
-            <p class="text-muted">Subscription Tracker & Optimizer</p>
+            <h1 class="mb-2">{{ t('appName') }}</h1>
+            <p class="text-muted">{{ t('appDescription') }}</p>
           </div>
-          <div class="text-sm text-muted">
-            <span class="badge badge-status-active">Demo</span>
+          <div class="flex items-center gap-4">
+            <LanguageSwitcher />
+            <div class="text-sm text-muted">
+              <span class="badge badge-status-active">{{ t('demo') }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -37,12 +40,16 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from '../utils/i18n'
 import subscriptionsData from '../data/subscriptions.json'
 import { calculateTotalSavings } from '../utils/classifier'
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 import HeroSection from '../components/HeroSection.vue'
 import SummaryCard from '../components/SummaryCard.vue'
 import Legend from '../components/Legend.vue'
 import SubscriptionTable from '../components/SubscriptionTable.vue'
+
+const { t } = useI18n()
 
 const subscriptions = ref([])
 

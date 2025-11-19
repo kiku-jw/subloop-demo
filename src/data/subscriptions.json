@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "vendor": "Notion",
+    "plan": "Team Plan",
+    "amount": 48.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 12,
+    "status": "ACTIVE",
+    "activity_events": 1247,
+    "last_activity": "2025-01-15",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "High usage across team members",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  },
+  {
+    "id": 2,
+    "vendor": "Slack",
+    "plan": "Pro",
+    "amount": 87.50,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 25,
+    "status": "SEMI_DEAD",
+    "activity_events": 45,
+    "last_activity": "2024-12-20",
+    "recommendation": {
+      "action": "DOWNGRADE",
+      "reason": "Low usage, can reduce seats from 25 to 10",
+      "potential_saving_monthly": 52.50,
+      "potential_saving_yearly": 630.00
+    }
+  },
+  {
+    "id": 3,
+    "vendor": "Figma",
+    "plan": "Professional",
+    "amount": 144.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 18,
+    "status": "ACTIVE",
+    "activity_events": 892,
+    "last_activity": "2025-01-14",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "Active design team usage",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  },
+  {
+    "id": 4,
+    "vendor": "Adobe Creative Cloud",
+    "plan": "Teams",
+    "amount": 599.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 20,
+    "status": "SEMI_DEAD",
+    "activity_events": 78,
+    "last_activity": "2024-11-15",
+    "recommendation": {
+      "action": "DOWNGRADE",
+      "reason": "Only 8 active users, reduce to 10 seats",
+      "potential_saving_monthly": 299.50,
+      "potential_saving_yearly": 3594.00
+    }
+  },
+  {
+    "id": 5,
+    "vendor": "Zoom",
+    "plan": "Business",
+    "amount": 200.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 50,
+    "status": "DEAD",
+    "activity_events": 0,
+    "last_activity": "2024-08-10",
+    "recommendation": {
+      "action": "CANCEL",
+      "reason": "No usage for 5+ months",
+      "potential_saving_monthly": 200.00,
+      "potential_saving_yearly": 2400.00
+    }
+  },
+  {
+    "id": 6,
+    "vendor": "Microsoft 365",
+    "plan": "Business Premium",
+    "amount": 220.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 30,
+    "status": "ACTIVE",
+    "activity_events": 2156,
+    "last_activity": "2025-01-15",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "Critical business tool, high usage",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  },
+  {
+    "id": 7,
+    "vendor": "Asana",
+    "plan": "Premium",
+    "amount": 109.25,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 15,
+    "status": "SEMI_DEAD",
+    "activity_events": 23,
+    "last_activity": "2024-12-05",
+    "recommendation": {
+      "action": "DOWNGRADE",
+      "reason": "Low engagement, reduce to 5 seats",
+      "potential_saving_monthly": 72.83,
+      "potential_saving_yearly": 873.96
+    }
+  },
+  {
+    "id": 8,
+    "vendor": "Dropbox Business",
+    "plan": "Advanced",
+    "amount": 180.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 20,
+    "status": "DEAD",
+    "activity_events": 0,
+    "last_activity": "2024-07-22",
+    "recommendation": {
+      "action": "CANCEL",
+      "reason": "No activity for 6 months, migrated to OneDrive",
+      "potential_saving_monthly": 180.00,
+      "potential_saving_yearly": 2160.00
+    }
+  },
+  {
+    "id": 9,
+    "vendor": "GitHub",
+    "plan": "Team",
+    "amount": 44.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 12,
+    "status": "ACTIVE",
+    "activity_events": 3421,
+    "last_activity": "2025-01-15",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "Essential development tool, very active",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  },
+  {
+    "id": 10,
+    "vendor": "Intercom",
+    "plan": "Professional",
+    "amount": 499.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 10,
+    "status": "SEMI_DEAD",
+    "activity_events": 12,
+    "last_activity": "2024-11-28",
+    "recommendation": {
+      "action": "DOWNGRADE",
+      "reason": "Minimal usage, consider canceling or downgrading",
+      "potential_saving_monthly": 249.50,
+      "potential_saving_yearly": 2994.00
+    }
+  },
+  {
+    "id": 11,
+    "vendor": "HubSpot",
+    "plan": "Professional",
+    "amount": 890.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 5,
+    "status": "ACTIVE",
+    "activity_events": 1876,
+    "last_activity": "2025-01-15",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "Active CRM usage by sales team",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  },
+  {
+    "id": 12,
+    "vendor": "Jira",
+    "plan": "Premium",
+    "amount": 140.00,
+    "currency": "USD",
+    "billing_period": "monthly",
+    "seats": 25,
+    "status": "ACTIVE",
+    "activity_events": 2103,
+    "last_activity": "2025-01-15",
+    "recommendation": {
+      "action": "KEEP",
+      "reason": "High project management activity",
+      "potential_saving_monthly": 0,
+      "potential_saving_yearly": 0
+    }
+  }
+]
+

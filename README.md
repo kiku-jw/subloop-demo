@@ -1,118 +1,127 @@
 # SubLoop Demo
 
-**SubLoop** — демо-версия трекера подписок для компаний. Анализирует подписки, классифицирует их по активности и предлагает рекомендации по оптимизации расходов.
+**SubLoop** — demo version of a subscription tracker for companies. Analyzes subscriptions, classifies them by activity, and provides recommendations for cost optimization.
 
 🌐 **Live Demo:** [https://kiku-jw.github.io/subloop-demo/](https://kiku-jw.github.io/subloop-demo/)
 
-## Что это?
+## What is it?
 
-SubLoop помогает компаниям:
-- 📊 Отслеживать все подписки в одном месте
-- 🔍 Классифицировать подписки по активности (ACTIVE / SEMI_DEAD / DEAD)
-- 💡 Получать рекомендации по оптимизации (KEEP / DOWNGRADE / CANCEL)
-- 💰 Рассчитывать потенциальную экономию
+SubLoop helps companies:
+- 📊 Track all subscriptions in one place
+- 🔍 Classify subscriptions by activity (ACTIVE / SEMI_DEAD / DEAD)
+- 💡 Get optimization recommendations (KEEP / DOWNGRADE / CANCEL)
+- 💰 Calculate potential savings
 
-## Функциональность
+## Features
 
-### Классификация подписок
+### Subscription Classification
 
-- **ACTIVE** — высокая активность, подписка используется активно
-- **SEMI_DEAD** — низкая активность, можно урезать тариф/количество мест
-- **DEAD** — нет активности длительное время, рекомендуется отменить
+- **ACTIVE** — high usage, subscription is actively used
+- **SEMI_DEAD** — low usage, consider downgrading plan/number of seats
+- **DEAD** — no activity for extended period, recommended to cancel
 
-### Рекомендации
+### Recommendations
 
-- **KEEP** — оставить как есть
-- **DOWNGRADE** — уменьшить количество мест или перейти на более дешевый тариф
-- **CANCEL** — отменить подписку
+- **KEEP** — leave as is
+- **DOWNGRADE** — reduce number of seats or switch to cheaper plan
+- **CANCEL** — cancel subscription
 
-### Расчет экономии
+### Savings Calculation
 
-Автоматический расчет потенциальной экономии:
-- Ежемесячная экономия
-- Годовая экономия
-- Количество рекомендаций
+Automatic calculation of potential savings:
+- Monthly savings
+- Yearly savings
+- Number of recommendations
 
-## Технологии
+## Technologies
 
 - **Vue 3** (Composition API)
-- **Vite** — сборка проекта
-- **CSS Variables** — темная тема в стиле shadcn
-- **GitHub Pages** — хостинг
+- **Vite** — project build tool
+- **CSS Variables** — dark theme in shadcn style
+- **GitHub Pages** — hosting
 
-## Локальная разработка
+## Local Development
 
 ```bash
-# Установить зависимости
+# Install dependencies
 npm install
 
-# Запустить dev-сервер
+# Run dev server
 npm run dev
 
-# Собрать для production
+# Build for production
 npm run build
 
-# Предпросмотр production сборки
+# Preview production build
 npm run preview
 ```
 
-## Структура проекта
+## Project Structure
 
 ```
 src/
-├── components/        # Vue компоненты
+├── components/        # Vue components
 │   ├── SummaryCard.vue
 │   ├── StatusBadge.vue
 │   ├── RecommendationBadge.vue
 │   └── SubscriptionTable.vue
-├── views/            # Страницы
+├── views/            # Pages
 │   └── Dashboard.vue
-├── data/             # Моковые данные
+├── data/             # Mock data
 │   └── subscriptions.json
-├── utils/            # Бизнес-логика
-│   └── classifier.js
-└── styles/           # Стили
+├── utils/            # Business logic
+│   ├── classifier.js
+│   └── i18n.js
+└── styles/           # Styles
     ├── theme.css
     └── components.css
 ```
 
-## Алгоритм классификации
+## Classification Algorithm
 
-Классификация основана на пороговых значениях активности:
+Classification is based on activity thresholds:
 
-- **ACTIVE**: активность ≥ 100 событий за период
-- **SEMI_DEAD**: активность 1-50 событий за период
-- **DEAD**: нет активности ≥ 3 месяцев
+- **ACTIVE**: activity ≥ 100 events per period
+- **SEMI_DEAD**: activity 1-50 events per period
+- **DEAD**: no activity ≥ 3 months
 
-Рекомендации генерируются на основе статуса и активности пользователей.
+Recommendations are generated based on status and user activity.
+
+## Internationalization
+
+The demo supports two languages:
+- **Russian** (default)
+- **English**
+
+Language can be switched using the RU/EN buttons in the header. Selection is saved in localStorage.
 
 ## GitHub Pages
 
-Проект настроен для деплоя на GitHub Pages:
-- Сборка в папку `/docs`
+Project is configured for deployment on GitHub Pages:
+- Build output to `/docs` folder
 - Base path: `/subloop-demo/`
-- Автоматический деплой через GitHub Actions при push в `main`
+- Automatic deployment via GitHub Actions on push to `main`
 
-### Настройка GitHub Pages (один раз)
+### Setting up GitHub Pages (one-time)
 
-1. Перейдите в **Settings** → **Pages** репозитория
-2. В разделе **Source** выберите:
+1. Go to **Settings** → **Pages** in the repository
+2. In the **Source** section, select:
    - **Source**: `Deploy from a branch`
    - **Branch**: `main` → `/docs`
-3. Сохраните настройки
+3. Save settings
 
-После этого сайт будет доступен по адресу: `https://kiku-jw.github.io/subloop-demo/`
+After setup, the site will be available at: `https://kiku-jw.github.io/subloop-demo/`
 
-**Примечание:** GitHub Actions workflow автоматически будет деплоить изменения при каждом push в `main`.
+**Note:** GitHub Actions workflow will automatically deploy changes on each push to `main`.
 
-## Лицензия
+## License
 
 MIT
 
-## Статус
+## Status
 
-Это демо-версия для проверки спроса. Полная версия с backend будет разработана при наличии интереса.
+This is a demo version to test market demand. Full version with backend will be developed if there's interest.
 
 ---
 
-**Примечание:** Все данные в демо являются моковыми и используются только для демонстрации функциональности.
+**Note:** All data in the demo is mock data and is used only for demonstration purposes.

@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:vercel": "VERCEL=1 vite build",
+    "build:gh-pages": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
